@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @cronograma.fecha %>
+</p>
+
+<p>
+  <strong>Lugar salida:</strong>
+  <%= @cronograma.lugar_salida %>
+</p>
+
+<p>
+  <strong>Ficha grupo:</strong>
+  <%= @cronograma.ficha_grupo %>
+</p>
+
+<p>
+  <strong>Tipo salida:</strong>
+  <%= @cronograma.tipo_salida %>
+</p>
+
+<p>
+  <strong>Programa:</strong>
+  <%= @cronograma.programa %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @cronograma.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_cronograma_path(@cronograma) %> |
+<%= link_to 'Back', cronogramas_path %>

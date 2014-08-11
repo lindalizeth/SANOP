@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :cronogramas
+
   resources :tipo_salidas
 
   match '/home', to: 'static_pages#home',  via: 'get' 

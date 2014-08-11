@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2014-08-11
+  lugar_salida: MyString
+  ficha_grupo: MyString
+  tipo_salida_id: 
+  programa: MyString
+  descripcion: MyString
+
+two:
+  fecha: 2014-08-11
+  lugar_salida: MyString
+  ficha_grupo: MyString
+  tipo_salida_id: 
+  programa: MyString
+  descripcion: MyString
