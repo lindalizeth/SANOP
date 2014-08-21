@@ -4,12 +4,13 @@ class CronogramasController < ApplicationController
   # GET /cronogramas
   # GET /cronogramas.json
   def index
-    @cronogramas = Cronograma.all
+    @cronogramas = Cronograma.search(params[:search], params[:page]) 
   end
 
   # GET /cronogramas/1
   # GET /cronogramas/1.json
   def show
+
   end
 
   # GET /cronogramas/new
@@ -19,46 +20,27 @@ class CronogramasController < ApplicationController
 
   # GET /cronogramas/1/edit
   def edit
+    
   end
 
   # POST /cronogramas
   # POST /cronogramas.json
   def create
     @cronograma = Cronograma.new(cronograma_params)
-
-    respond_to do |format|
-      if @cronograma.save
-        format.html { redirect_to @cronograma, notice: 'Cronograma was successfully created.' }
-        format.json { render :show, status: :created, location: @cronograma }
-      else
-        format.html { render :new }
-        format.json { render json: @cronograma.errors, status: :unprocessable_entity }
-      end
-    end
+    render action: :new unless @cronograma.save
   end
+  
 
   # PATCH/PUT /cronogramas/1
   # PATCH/PUT /cronogramas/1.json
   def update
-    respond_to do |format|
-      if @cronograma.update(cronograma_params)
-        format.html { redirect_to @cronograma, notice: 'Cronograma was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cronograma }
-      else
-        format.html { render :edit }
-        format.json { render json: @cronograma.errors, status: :unprocessable_entity }
-      end
-    end
+    render action: :edit unless @cronograma.update_attributes(cronograma_params)
   end
 
   # DELETE /cronogramas/1
   # DELETE /cronogramas/1.json
   def destroy
     @cronograma.destroy
-    respond_to do |format|
-      format.html { redirect_to cronogramas_url, notice: 'Cronograma was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -69,6 +51,7 @@ class CronogramasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cronograma_params
-      params.require(:cronograma).permit(:fecha, :lugar_salida, :ficha_grupo, :tipo_salida_id, :programa, :descripcion)
+      #PUEDE SER QUE AQUI HAYA UN ERROR YA QUE APARECE METODO NOMBRE NO DEFINIDO
+      params.require(:cronograma).permit(:nombre)
     end
 end

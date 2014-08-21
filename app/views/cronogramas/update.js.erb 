@@ -1,0 +1,2 @@
+$('tr#cronograma_<%= @cronograma.id %>').replaceWith("<%= escape_javascript(render @cronograma) %>")
+$.lazybox.close()

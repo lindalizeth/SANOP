@@ -52,3 +52,8 @@ gem 'rails_layout'
 
 
 end
+
+
+
+ 
+gem 'lazybox' 

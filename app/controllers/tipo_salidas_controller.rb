@@ -4,7 +4,7 @@ class TipoSalidasController < ApplicationController
   # GET /tipo_salidas
   # GET /tipo_salidas.json
   def index
-    @tipo_salidas = TipoSalida.all
+    @tipo_salidas = TipoSalida.search(params[:search], params[:page])
   end
 
   # GET /tipo_salidas/1
@@ -28,7 +28,7 @@ class TipoSalidasController < ApplicationController
 
     respond_to do |format|
       if @tipo_salida.save
-        format.html { redirect_to @tipo_salida, notice: 'Tipo salida was successfully created.' }
+        format.html { redirect_to @tipo_salida, notice: 'Tipo salida se creó con éxito.' }
         format.json { render :show, status: :created, location: @tipo_salida }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TipoSalidasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_salida.update(tipo_salida_params)
-        format.html { redirect_to @tipo_salida, notice: 'Tipo salida was successfully updated.' }
+        format.html { redirect_to @tipo_salida, notice: 'Tipo salida fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @tipo_salida }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TipoSalidasController < ApplicationController
   def destroy
     @tipo_salida.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_salidas_url, notice: 'Tipo salida was successfully destroyed.' }
+      format.html { redirect_to tipo_salidas_url, notice: 'Tipo salida fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

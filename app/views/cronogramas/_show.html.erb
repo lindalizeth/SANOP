@@ -1,0 +1,44 @@
+<div class='cronograma'> 
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Fecha:</strong>
+    <%= @cronograma.fecha %>
+  </p>
+
+  <p>
+    <strong>Lugar salida:</strong>
+    <%= @cronograma.lugar_salida %>
+  </p>
+
+  <p>
+    <strong>Ficha grupo:</strong>
+    <%= @cronograma.ficha_grupo %>
+  </p>
+
+  <p>
+    <strong>Tipo salida:</strong>
+    <%= @cronograma.tipo_salida.nombre rescue nil %>
+  </p>
+
+  <p>
+    <strong>Programa:</strong>
+    <%= @cronograma.programa %>
+  </p>
+
+  <p>
+    <strong>Descripcion:</strong>
+    <%= @cronograma.descripcion %>
+  </p>
+
+  <p id="notice"><%= notice %></p> 
+  <p> 
+   <strong>Ficha del grupo:</strong> 
+   <%= @cronograma.ficha_grupo  %> 
+  </p> 
+
+
+  <%= link_to 'Editar', edit_cronograma_path(@cronograma) %> |
+  <%= link_to 'Atras', cronogramas_path %>
+</div>
