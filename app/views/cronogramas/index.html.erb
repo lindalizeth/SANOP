@@ -1,39 +1,28 @@
-<h1>Listado del cronograma</h1>
-<!--Buscador-->
-<%= form_tag cronogramas_path, :method => 'get' do %> 
-<% content_tag :label do %> 
-Search term: 
-<%= text_field_tag :search, params[:search] %> 
-<%= submit_tag "Buscar", :name => nil %> 
-<% end %> 
-<% end %> 
-<!--tabla index con atributos que van en la vista-->
-<table class="table">
+<%- model_class = Cronograma -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Fecha</th>
-      <th>Lugar salida</th>
-      <th>Ficha grupo</th>
-      <th>Tipo salida</th>
-      <th>Programa</th>
-      <th>Descripcion</th>
-      <th colspan="3">Acciones</th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:fecha) %></th>
+      <th><%= model_class.human_attribute_name(:lugar_salida) %></th>
+      <th><%= model_class.human_attribute_name(:ficha_grupo) %></th>
+      <th><%= model_class.human_attribute_name(:tipo_salida_id) %></th>
+      <th><%= model_class.human_attribute_name(:programa) %></th>
+      <th><%= model_class.human_attribute_name(:descripcion) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
- 
   <tbody>
     <%= render @cronogramas %>
-   
+      
   </tbody>
 </table>
 
-<br>
-
-<%= will_paginate @cronogramas, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente 
-&raquo;' %> 
-<br> 
-Cronogramas: <%= @cronogramas.count %> 
-
-<%= link_to 'Nuevo Municipio', new_cronograma_path, remote: true %>
-
-
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cronograma_path,
+            :class => 'btn btn-primary',
+            :remote => true %>

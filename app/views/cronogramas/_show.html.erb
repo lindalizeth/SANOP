@@ -1,4 +1,4 @@
-<div class='cronograma'> 
+<div class='cronograma container'> 
 
   <p id="notice"><%= notice %></p>
 
@@ -19,7 +19,7 @@
 
   <p>
     <strong>Tipo salida:</strong>
-    <%= @cronograma.tipo_salida.nombre rescue nil %>
+    <%= @cronograma.tipo_salida.nombre  %>
   </p>
 
   <p>
@@ -39,6 +39,6 @@
   </p> 
 
 
-  <%= link_to 'Editar', edit_cronograma_path(@cronograma) %> |
+  <%= link_to 'Editar', edit_cronograma_path(@cronograma), remote: true %> |
   <%= link_to 'Atras', cronogramas_path %>
 </div>

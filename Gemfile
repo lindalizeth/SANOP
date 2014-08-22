@@ -49,11 +49,13 @@ gem 'better_errors'
 gem 'binding_of_caller' #, :platforms=>[:mri_19, :mri_20, :rbx] 
 gem 'quiet_assets' 
 gem 'rails_layout' 
-
+gem 'meta_request'
 
 end
 
 
 
- 
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
+gem 'less-rails'
 gem 'lazybox' 

@@ -1,51 +1,13 @@
-<!--editado por Yo-->
-<%= simple_form_for(@cronograma, :html => { :class => 'form-horizontal', remote: true } ) do |f| %>
-
-  <% if @cronograma.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@cronograma.errors.count, "error") %> Error no se pudo guardar:</h2>
-
-
-      <ul>
-      <% @cronograma.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">Fecha</label><br>
-    <%= f.date_select :fecha %>
+<%= simple_form_for @cronograma, :html => { :class => 'form-horizontal', :remote => true } do |f| %>
+  <%= f.input :fecha %>
+  <%= f.input :lugar_salida %>
+  <%= f.input :ficha_grupo %>
+  <%= f.input :tipo_salida_id %>
+  <%= f.input :programa %>
+  <%= f.input :descripcion %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                cronogramas_path, :class => 'btn' %>
   </div>
-
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">Lugar de salida</label><br>
-    <%= f.text_field :lugar_salida %>
-  </div>
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">Ficha de grupo</label><br>
-    <%= f.text_field :ficha_grupo %>
-  </div>
-
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">Tipo de salida</label><br> <%= f.collection_select :tipo_salida_id, TipoSalida.all, :id, :nombre, class: "form­-control", prompt: 
-   "Seleccione Tipo de salida" %> 
-</div>
-
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">programa</label><br>
-    <%= f.text_field :programa %>
-  </div>
-  <div class="form-group">
-    <label for="name" class="col-sm-3 control-label">Descripcion</label><br>
-    <%= f.text_field :descripcion %>
-  </div>
- <!--acabo de cambiar el guardar-->
- <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <%= f.submit "Guardar", class: "btn btn-sm btn-success" %>
-  </div>
-  </div>
-
 <% end %>

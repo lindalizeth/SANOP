@@ -1,34 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Cronograma -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @cronograma.fecha %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:fecha) %>:</strong></dt>
+  <dd><%= @cronograma.fecha %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lugar_salida) %>:</strong></dt>
+  <dd><%= @cronograma.lugar_salida %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ficha_grupo) %>:</strong></dt>
+  <dd><%= @cronograma.ficha_grupo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_salida_id) %>:</strong></dt>
+  <dd><%= @cronograma.tipo_salida_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa) %>:</strong></dt>
+  <dd><%= @cronograma.programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
+  <dd><%= @cronograma.descripcion %></dd>
+</dl>
 
-<p>
-  <strong>Lugar salida:</strong>
-  <%= @cronograma.lugar_salida %>
-</p>
-
-<p>
-  <strong>Ficha grupo:</strong>
-  <%= @cronograma.ficha_grupo %>
-</p>
-
-<p>
-  <strong>Tipo salida:</strong>
-  <%= @cronograma.tipo_salida %>
-</p>
-
-<p>
-  <strong>Programa:</strong>
-  <%= @cronograma.programa %>
-</p>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @cronograma.descripcion %>
-</p>
-
-<%= link_to 'Edit', edit_cronograma_path(@cronograma) %> |
-<%= link_to 'Back', cronogramas_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              cronogramas_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_cronograma_path(@cronograma), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              cronograma_path(@cronograma),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

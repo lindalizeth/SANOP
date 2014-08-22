@@ -34,7 +34,7 @@ class CronogramasController < ApplicationController
   # PATCH/PUT /cronogramas/1
   # PATCH/PUT /cronogramas/1.json
   def update
-    render action: :edit unless @cronograma.update_attributes(cronograma_params)
+    render action: :edit unless @cronograma.update(cronograma_params)
   end
 
   # DELETE /cronogramas/1
@@ -52,6 +52,6 @@ class CronogramasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cronograma_params
       #PUEDE SER QUE AQUI HAYA UN ERROR YA QUE APARECE METODO NOMBRE NO DEFINIDO
-      params.require(:cronograma).permit(:nombre)
+      params.require(:cronograma).permit(:fecha,:lugar_salida,:ficha_grupo, :tipo_salida_id,:programa,:descripcion)
     end
 end

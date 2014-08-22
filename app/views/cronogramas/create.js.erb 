@@ -1,2 +1,2 @@
-$('table tbody').append("<%= escape_javascript(render @cronograma) %>")
-$.lazybox.close()
+$("table tbody").append("<%= j(render @cronograma) %>");
+$.lazybox.close();

@@ -1,3 +1,2 @@
-$.lazybox.close()
-$("table tr#cronograma_<%= @cronograma.id %>").remove();
+$("tr#cronograma_<%= @cronograma.id %>").remove();
 
